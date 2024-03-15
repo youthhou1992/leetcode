@@ -59,3 +59,24 @@
         k = k % len(nums)
         nums[:] = nums[-k:] + nums[:-k]
  ```
+
+ ## 238.[除自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self/description/?envType=study-plan-v2&envId=top-100-liked)
+ ### 思路  
+ 1. 从后往前，计算每个位置的后缀积
+ 2. 从前往后，计算每个位置的前缀积和前缀积与后缀积的积，即为结果  
+
+ ### 实现
+ ```
+     def productExceptSelf(nums: List[int]) -> List[int]:
+        post = [0 for i in range(len(nums))]
+        cum = 1
+        for i in range(len(nums)-1, -1, -1):
+            post[i] = cum
+            cum *= nums[i]
+        ans = []
+        cum = 1
+        for i in range(len(nums)):
+            ans.append(cum*post[i])
+            cum *= nums[i]
+        return ans
+ ```
