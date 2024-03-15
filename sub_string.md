@@ -1,3 +1,6 @@
+# 连续子数组和的问题
+### 可利用前缀和的特性
+
 ## 560.[和为k的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/description/?envType=study-plan-v2&envId=top-100-liked)
 
 ### 要点  
@@ -7,7 +10,7 @@
   pre[i] = pre[i-1] = nums[i]  
 那么[j...i]子数组的和为k，可以转化为：  
   pre[i] - pre[j-1] = k  
-则考虑以i为纪委的和为k的子数组个数之需统计由多少个前缀和为pre[i]-k的pre[j]即可，利用哈希表可以快速获取前缀和为pre[i]-k的pre[j]的个数  
+则考虑以i为结尾的和为k的子数组个数之需统计由多少个前缀和为pre[i]-k的pre[j]即可，利用哈希表可以快速获取前缀和为pre[i]-k的pre[j]的个数  
 ### 实现
 1. 暴力枚举
 ```
